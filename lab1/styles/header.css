@@ -1,0 +1,55 @@
+
+.logo {
+    color: #222;
+    text-align: center;
+    font-size: 24.118px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 45px;
+}
+.login-text {
+    display: flex;
+    margin-left: 42.97px;
+    margin-right: 37%;
+}
+.sevices-text {
+    display: flex;
+    margin-right: 37.42px;
+}
+.enterprise-text {
+    display: flex;
+    margin-right: 37.42px;
+}
+
+.pricing-text {
+    display: flex;
+    margin-right: 7%;
+}
+header {
+
+    display: flex;
+    align-items: center;
+}
+header a {
+    text-decoration: none;
+    color: #73738D;
+    font-size: 11.089px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.try-it-button {
+    border-radius: 33.96px;
+    border: 1.04px solid #1943EF;
+    width: 118.512px;
+    height: 31.881px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1943EF;
+    font-size: 11.089px;
+    font-weight: 600;
+    margin-left: -7px;
+
+}

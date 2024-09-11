@@ -1,0 +1,134 @@
+
+
+.reminder-container {
+    display: flex;
+    padding: 20px;
+    max-width: 1200px;
+    padding-left: 5% ;
+}
+
+.reminders {
+    width: 475px;
+    height: 66.533px;
+    margin-top: 60px;
+}
+
+.reminder-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 13.861px 55.444px 0px #F2F5FA;
+/*    padding: 15px;*/
+/*    margin-bottom: 20px;*/
+    margin-left: 40px;
+}
+
+.profile-image1 {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-top: 15px;
+
+}
+.profile-image2 {
+    width: 33px;
+    height: 33px;
+    margin-right: 15px;
+    border-radius: 50%;
+    margin-top: 15px;
+
+}
+.profile-image3 {
+    width: 33px;
+    height: 33px;
+    margin-right: 15px;
+    border-radius: 50%;
+    margin-top: 15px;
+
+}
+.reminder-content p {
+    color: #222;
+    font-size: 11.089px;
+    line-height: 150%; /* 16.633px */
+    max-width: 320px;
+}
+
+.reminder-content strong {
+    font-weight: bold;
+}
+
+.reminder-content a {
+    color: #00c3a1;
+    text-decoration: none;
+}
+
+.reminder-content a:hover {
+    text-decoration: underline;
+}
+
+.reminder-details {
+    width: 40%;
+    margin-left: 20%;
+    margin-top: 40px;
+
+}
+
+.reminder-details h1 {
+    width: 320.638px;
+    height: 26.494px;
+    color: #222;
+    font-size: 24.95px;
+    font-weight: bold;
+
+
+}
+
+.reminder-details p {
+    width: 330.063px;
+    height: 88.711px;
+    color: #73738D;
+    font-size: 14.554px;
+    font-weight: 500;
+    line-height: 150%; /* 21.831px */
+}
+
+.reminder-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.reminder-details ul li {
+    color: #73738D;
+    font-size: 11.089px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.tick-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 40px;
+    justify-content: space-between;
+}
+
+.tick {
+    flex-basis: 45%; /* Задайте приблизно половину ширини для кожного елементу */
+    margin: 10px 0px;  /* Відступи між елементами */
+    display: flex;
+    align-items: center; /* Вирівнювання іконки та тексту по вертикалі */
+    position: relative; /* Додаємо відносне позиціювання для псевдоелемента */
+}
+
+.tick:before {
+    content: '';
+    background-image: url('data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill-rule=%22evenodd%22 clip-rule=%22evenodd%22 d=%22M9.77592 1.33558L4.59361 6.72986C4.30507 7.03019 3.84339 7.03019 3.55484 6.72986L0.969462 4.0154C0.680915 3.71507 0.680915 3.22993 0.969462 2.92961C1.25801 2.62929 1.71968 2.62929 2.00823 2.92961L4.08577 5.10118L8.74869 0.249794C9.03723 -0.0505296 9.49891 -0.0505296 9.78746 0.249794C10.0645 0.550118 10.0645 1.03526 9.77592 1.33558Z%22 fill=%22%2326C296%22/%3E%3C/svg%3E');
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    width: 9.241px;
+    height: 6.931px;
+    margin-right: 5px;
+
+}

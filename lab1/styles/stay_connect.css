@@ -1,0 +1,75 @@
+.anxiety-section{
+    margin-left: 8.5%;
+    width: 380px;
+    height: 159px;
+    border-radius: 20.792px;
+    background: #FFF;
+    box-shadow: 0px 13.861px 55.444px 0px #F2F5FA;
+    position: relative;
+    margin-top: 5.8%;
+    }
+.etc-img{
+    width: 14px;
+    height: 4px;
+    margin-left: 90%;
+    margin-top: 10px;
+    position: absolute;
+}
+
+.anxiety-section h1{
+    width: 260.55px;
+    height: 20.099px;
+
+    color: #222;
+    font-size: 16.633px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.anxiety-subtext{
+    width: 97px;
+    height: 13px;
+    color: rgba(34, 34, 34, 0.80);
+    font-size: 11px;
+    font-weight: 500;
+}
+.anxiety-section p {
+    width: 307.17px;
+    height: 58.763px;
+    flex-shrink: 0;
+
+    color: rgba(115, 115, 141, 0.80);
+    font-size: 9.703px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 180%; /* 17.465px */
+}
+
+.connect-and-anxiety-section{
+    display: flex;
+    margin-top: 100px;
+}
+
+.connect-section{
+    margin-left: 24.8%;
+    margin-bottom: 10px;
+    position: relative;
+}
+.connect-section h1{
+    width: 400.528px;
+    height: 30.494px;
+    flex-shrink: 0;
+    font-size: 24.95px;
+    font-weight: 700;
+}
+.connect-subtext{
+    width: 343.063px;
+    height: 88.711px;
+    flex-shrink: 0;
+
+    color: #73738D;
+    font-size: 14.554px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 21.831px */
+}
