@@ -1,5 +1,8 @@
 body{
     font-family: Gilroy,sans-serif;
-    margin-right: 100px;
-    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
 }

@@ -1,12 +1,12 @@
 .anxiety-section{
-    margin-left: 8.5%;
+/*    margin-left: 8.5%;*/
     width: 380px;
     height: 159px;
     border-radius: 20.792px;
     background: #FFF;
     box-shadow: 0px 13.861px 55.444px 0px #F2F5FA;
     position: relative;
-    margin-top: 5.8%;
+    margin-top: 6.5%;
     }
 .etc-img{
     width: 14px;
@@ -17,41 +17,41 @@
 }
 
 .anxiety-section h1{
-    width: 260.55px;
-    height: 20.099px;
+    width: 260px;
+    height: 10px;
 
     color: #222;
-    font-size: 16.633px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    padding-left: 7.5%;
 }
 .anxiety-subtext{
-    width: 97px;
+    width: 105px;
     height: 13px;
     color: rgba(34, 34, 34, 0.80);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
+    padding-left: 8%;
 }
 .anxiety-section p {
     width: 307.17px;
     height: 58.763px;
-    flex-shrink: 0;
-
     color: rgba(115, 115, 141, 0.80);
-    font-size: 9.703px;
-    font-style: normal;
-    font-weight: 500;
+    font-size: 11px;
     line-height: 180%; /* 17.465px */
+    padding-left: 8%;
 }
 
 .connect-and-anxiety-section{
     display: flex;
     margin-top: 100px;
+    justify-content: space-between;
 }
 
 .connect-section{
-    margin-left: 24.8%;
+/*    margin-left: 24.8%;*/
     margin-bottom: 10px;
     position: relative;
 }
