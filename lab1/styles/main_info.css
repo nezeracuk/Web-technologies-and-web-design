@@ -1,0 +1,86 @@
+.main-content{
+    color: #222;
+    font-size: 40.197px;
+    font-weight: 700;
+    width: 450.001px;
+    height: 97.028px;
+    flex-shrink: 0;
+    margin-left: 20px;
+
+}
+.relationships-section{
+
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+
+}
+
+.subtext{
+    color: #73738D;
+    font-size: 14.554px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 21.831px */
+    margin-left: 42.97px;
+    width: 429.001px;
+    height: 66.533px;
+    flex-shrink: 0;
+}
+
+
+
+.hero p {
+    margin-bottom: 16px;
+}
+
+.phone-image img {
+    display: flex;
+    width: 260.989px;
+    height: 458.989px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -60%;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+
+    border-radius: 50px;
+    margin: 40px;
+    width: 423.457px;
+    height: 41.583px;
+}
+
+
+.email-input {
+    border: none;
+    background-color: #fafafa;
+    outline: none;
+    flex-grow: 1;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    color: rgba(115, 115, 141, 0.60);
+
+
+}
+
+
+.submit-button {
+    border-radius: 33.96px;
+    background: #1943EF;
+    color: white;
+    border: none;
+    font-size: 16px;
+    width: 155.938px;
+    height: 41.583px;
+    cursor: pointer;
+}
