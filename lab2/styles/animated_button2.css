@@ -1,0 +1,37 @@
+.animated_button2 {
+    padding: 15px 25px;
+    font-size: 11px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #1943EF;
+    background-color: transparent;
+    border: 1px solid #1943EF;
+    border-radius: 34px;
+    box-shadow: none;
+    width: 11.4%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.animated_button2:hover {
+    background-color: #1943EF;
+    color: white;
+}
+
+.animated_button2:active {
+    background-color: #1943EF;
+    box-shadow: 0 5px #0d95ff;
+    transform: translateY(4px);
+}
+
+@media screen and (max-width: 1005px) {
+    .animated_button2 {
+        display: none;
+}
+
+}

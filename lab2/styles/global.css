@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Gilroy,sans-serif;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+@media screen and (max-width: 768px){
+    body{
+        width: 100%;
+    }
+
+}

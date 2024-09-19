@@ -2,17 +2,17 @@
 
 .reminder-container {
     display: flex;
-    justify-content: space-around;
-    gap: 30%;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+    /*gap: 30%;*/
 }
 
 .reminders {
-/*    width: 475px;
-    height: 66.533px;*/
-/*    margin-top: 60px;*/
+    width: 47.5%;
+    height: 66px;
     display: flex;
-/*    width: 499.603px;
-    height: 313px;*/
+    margin-top: 1.5%;
     flex-direction: column;
     align-items: flex-start;
 }
@@ -24,8 +24,7 @@
     border-radius: 12px;
     box-shadow: 0px 13.861px 55.444px 0px #F2F5FA;
     padding-bottom: 16px;
-/*    margin-bottom: 20px;*/
-/*    margin-left: 40px;*/
+    /*margin-bottom: 20px;*/
 }
 
 .profile-image1 {
@@ -59,7 +58,7 @@
     color: #222;
     font-size: 11.089px;
     line-height: 150%; /* 16.633px */
-    max-width: 320px;
+    max-width: 66.6%;
 }
 
 .reminder-content strong {
@@ -77,8 +76,8 @@
 
 .reminder-details {
     display: flex;
-/*    width: 512.939px;
-    height: 315px;*/
+    width: 32%;
+    height: 315px;
     flex-direction: column;
     align-items: flex-start;
 /*    gap: 10px;
@@ -86,8 +85,8 @@
 }
 
 .reminder-details h1 {
-    width: 320.638px;
-    height: 26.494px;
+    /*width: 320.638px;*/
+    /*height: 26.494px;*/
     color: #222;
     font-size: 24.95px;
     font-weight: bold;
@@ -96,8 +95,8 @@
 }
 
 .reminder-details p {
-    width: 330.063px;
-    height: 88.711px;
+    /*width: 330.063px;*/
+    /*height: 88.711px;*/
     color: #73738D;
     font-size: 14.554px;
     font-weight: 500;
@@ -139,4 +138,49 @@
     height: 6.931px;
     margin-right: 5px;
 
+}
+@media screen and (max-width: 1509px) {
+    .reminder-details h1 {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .reminder-container{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .reminders{
+        width: 90%;
+        margin: 0 auto;
+        height: auto;
+        /*margin-left: 10%;*/
+    }
+    .reminder-details {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .reminder-details h1{
+        font-size: 18px;
+    }
+    .tick{
+        margin: 5px 7px;
+    }
+    .reminder-content p{
+        max-width: 100% ;
+    }
+}
+@media screen and (max-width: 360px) {
+    .profile-image3 {
+        width: 55px;
+        /*margin: 5%;*/
+    }
+
+    .profile-image2 {
+        width: 53px;
+    }
+
+    .reminder-item {
+        padding: 0;
+    }
 }

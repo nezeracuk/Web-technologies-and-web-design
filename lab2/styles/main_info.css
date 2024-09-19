@@ -1,0 +1,145 @@
+.main-content{
+    color: #222;
+    font-size: 40.197px;
+    font-weight: 700;
+    width: 55%;
+    /*height: 97.028px;*/
+    flex-shrink: 0;
+    margin-left: 20px;
+
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 70%;
+    margin: 0 auto;
+
+}
+
+.subtext{
+    color: #73738D;
+    font-size: 14.554px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 21.831px */
+    margin-left: 20px;
+    width: 50%;
+    height: 66.533px;
+}
+
+
+
+.hero p {
+    margin-bottom: 16px;
+}
+
+.phone-image img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    margin: 40px;
+    /*width: 423.457px;*/
+    height: 41.583px;
+}
+.input-container label{
+    /*height: 41.583px;*/
+}
+
+
+.email-input {
+    border: none;
+    background-color: #fafafa;
+    outline: none;
+    flex-grow: 1;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-size: 11px;
+    color: #73738D99;
+
+}
+
+.submit-button {
+    border-radius: 34px;
+    background: #1943EF;
+    color: white;
+    border: none;
+    font-size: 11px;
+    width: 20%;
+    height: 41px;
+    cursor: pointer;
+    font-weight: 530;
+}
+@media screen and (max-width: 1492px) {
+    .main-content{
+        font-size: 35px;
+    }
+}
+@media screen and (max-width: 1134px) {
+    .input-container{
+        margin-top: 55px;
+    }
+}
+@media screen and (max-width: 1005px){
+    .main-content{
+        font-size: 28px;
+        width: 100%;
+        height: 15px;
+    }
+    .subtext{
+        width: 100%;
+    }
+    .phone-image{
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .hero{
+        display: block;
+        margin: 0;
+        width: 90%;
+        max-width: 90%;
+    }
+    .main-content{
+        font-size: 24.95px;
+        width: 100%;
+        height: 40px;
+
+    }
+    .subtext{
+        font-size: 14.554px;
+        width: 100%;
+    }
+    .input-container{
+        margin: 0;
+        white-space: nowrap;
+
+    }
+    /*.submit-button{*/
+    /*    width: 36%*/
+    /*}*/
+}
+
+@media screen and (max-width: 450px){
+    .input-container{
+        padding-top: 15%;
+        padding-bottom: 20%;
+    }
+    .animated_button1{
+        width: 36%;
+    }
+}
+
+
+
