@@ -60,7 +60,15 @@ header a {
     display: none;
 }
 
-
+@media (min-width: 2000px ){
+    header a {
+        text-decoration: none;
+        font-size: 25px;
+    }
+    .logo{
+        font-size: 40px;
+    }
+}
 @media screen and (max-width: 1005px){
     .login-text{
         display:none;
@@ -206,6 +214,7 @@ header a {
         margin-right: 18px;
     }
 }
+
 
 
 

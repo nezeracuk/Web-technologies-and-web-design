@@ -26,7 +26,7 @@
     line-height: 150%; /* 21.831px */
     margin-left: 20px;
     width: 50%;
-    height: 66.533px;
+    /*height: 66.533px;*/
 }
 
 
@@ -49,7 +49,7 @@
     align-items: center;
     background-color: white;
     border-radius: 50px;
-    margin: 40px;
+    margin-bottom: 30px;
     /*width: 423.457px;*/
     height: 41.583px;
 }
@@ -81,6 +81,21 @@
     cursor: pointer;
     font-weight: 530;
 }
+
+@media (min-width: 2000px ){
+    .main-content{
+        font-size: 50px
+    }
+    .subtext{
+        font-size: 20px;
+    }
+    .email-input{
+        font-size: 20px;
+    }
+    .phone-image img {
+        width: 230px;
+    }
+}
 @media screen and (max-width: 1492px) {
     .main-content{
         font-size: 35px;
@@ -101,15 +116,19 @@
         width: 100%;
     }
     .phone-image{
-        display: none;
+        display: flex;
+        flex-direction: column;
+        /*height: 200px;*/
+        width: 200px;
     }
 }
 @media screen and (max-width: 768px) {
     .hero{
-        display: block;
-        margin: 0;
-        width: 90%;
+        display: flex;
+        /*margin: 0;*/
+        /*width: 90%;*/
         max-width: 90%;
+        flex-direction: column-reverse;
     }
     .main-content{
         font-size: 24.95px;
@@ -122,8 +141,11 @@
         width: 100%;
     }
     .input-container{
-        margin: 0;
+        /*margin: 0;*/
         white-space: nowrap;
+        display: flex;
+        justify-content: center;
+
 
     }
     /*.submit-button{*/
