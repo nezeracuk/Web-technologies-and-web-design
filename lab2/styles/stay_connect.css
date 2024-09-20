@@ -1,0 +1,119 @@
+.anxiety-section{
+/*    margin-left: 8.5%;*/
+    width: 38%;
+    height: 159px;
+    border-radius: 20.792px;
+    background: #FFF;
+    box-shadow: 0px 13.861px 55.444px 0px #F2F5FA;
+    position: relative;
+    margin-top: 6.5%;
+    /*padding-left: 8%;*/
+    }
+.etc-img{
+    width: 14px;
+    height: 4px;
+    margin-left: 92%;
+    margin-top: 5%;
+    position: absolute;
+}
+
+.anxiety-section h1{
+    height: 10px;
+    color: #222;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-left: 5%;
+}
+.anxiety-subtext{
+    height: 13px;
+    color: rgba(34, 34, 34, 0.80);
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 5%;
+}
+.anxiety-section p {
+    width: 100%;
+    height: 59px;
+    color: rgba(115, 115, 141, 0.80);
+    font-size: 11px;
+    line-height: 180%; /* 17.465px */
+    padding-left: 5%;
+}
+
+.connect-and-anxiety-section{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 4% auto;
+}
+
+.connect-section{
+/*    margin-left: 24.8%;*/
+    margin-bottom: 15px;
+    position: relative;
+    max-width: 34%;
+}
+.connect-section h1{
+    height: 30.494px;
+    flex-shrink: 0;
+    font-size: 24.95px;
+    font-weight: 700;
+}
+.connect-subtext{
+    width: 90%;
+    height: 88.711px;
+    flex-shrink: 0;
+
+    color: #73738D;
+    font-size: 14.554px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%; /* 21.831px */
+}
+
+
+@media screen and (max-width: 1509px){
+    .connect-section h1 {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .anxiety-section h1{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 900px){
+    .anxiety-section h1{
+        font-size: 13px;
+    }
+    .anxiety-section p{
+        font-size: 10px;
+    }
+    .connect-subtext{
+        height: 10%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .connect-and-anxiety-section{
+/*        flex-direction: column;*/
+/*        margin-left: 50%;*/
+        width: 100%;
+        display: block;
+    }
+    .connect-section{
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .connect-section h1{
+        height: 20px;
+        font-size: 18px;
+    }
+    .anxiety-section{
+        width: 95%;
+    }
+    .science-img{
+        margin-top: 20px;
+    }
+}

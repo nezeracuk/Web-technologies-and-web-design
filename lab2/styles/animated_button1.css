@@ -1,0 +1,102 @@
+html, body {
+    height: 100%;
+}
+
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animated_button1 {
+    display: inline-flex;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.3px;
+    font-weight: 530;
+    color: white;
+    background: #1943EF;
+    border: none;
+    border-radius: 34px;
+    box-shadow: 12px 12px 24px #1943EF;
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    /*position: relative;*/
+    padding: 10px;
+    width: 20%;
+    height: 41px;
+}
+
+.animated_button1::before {
+    content: '';
+    border-radius: 34px;
+    border: 6px solid rgba(8, 40, 106, 0.2);
+    box-shadow: 0 0 60px #1943EF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+}
+
+.animated_button1:hover,
+.animated_button1:focus {
+    color: white;
+    transform: translateY(-6px);
+}
+
+.animated_button1:hover::before,
+.animated_button1:focus::before {
+    opacity: 1;
+}
+
+.animated_button1:hover::after,
+.animated_button1:focus::after {
+    animation: none;
+    display: none;
+}
+
+@keyframes ring {
+    0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .animated_button1{
+        box-shadow: none;
+    }
+}
+@media screen and (max-width: 690px) {
+    .animated_button1 {
+        width: 36%;
+        font-size: 9.5px;
+    }
+}
+@media screen and (max-width: 450px){
+    .animated_button1{
+        width: 36%;
+        font-size: 8.5px;
+    }
+
+    @keyframes ring {
+        100%{
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+    }
+}

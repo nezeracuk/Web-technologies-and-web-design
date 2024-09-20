@@ -1,0 +1,39 @@
+.main-footer {
+    margin-top: 58px;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.footer h2{
+    margin-top: 35px;
+    /*width: 72px;*/
+    height: 20px;
+    flex-shrink: 0;
+    color: #222;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.footer p{
+    /*width: 289px;*/
+    /*height: 13px;*/
+    flex-shrink: 0;
+
+    color: #73738D;
+    text-align: center;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+@media screen and (max-width: 768px) {
+    .main-footer {
+        margin: 0
+    }
+}
