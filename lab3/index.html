@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD JS App - View Page</title>
+    <title>Camera Website</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,26 +11,21 @@
 <div class="container">
     <h1>Camera website</h1>
 
-    <!-- Search bar -->
     <div class="search-section">
         <label for="search">Search by Manufacturer: </label>
-        <input type="text" id="search" placeholder="Поставте 1.2">
+        <input type="text" id="search" placeholder="Поставте 1.2 бали, пліз">
         <button id="wanna-button" onclick="searchCameras()">I wanna...</button>
         <button id="nevermind-button" onclick="clearSearch()">Nevermind</button>
     </div>
 
-    <!-- Sorting and counting options -->
     <div class="buttons">
         <button onclick="sortCamerasByZoom()">Sort by Zoom</button>
-        <button onclick="calculateTotalMemory()">Total Memory</button>
     </div>
 
-    <!-- Total memory displayed -->
     <div>
         <h3>Total Memory: <span id="totalMemory">0</span> MB</h3>
     </div>
 
-    <!-- Camera list -->
     <div id="cameraList">
         <h3>Camera List</h3>
     </div>

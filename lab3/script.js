@@ -1,5 +1,7 @@
 import {cameras} from "./js/cameras.js";
 
+let currentCameras = [...cameras];
+
 function displayCameras(cameraList) {
     const cameraListDiv = document.getElementById('cameraList');
     cameraListDiv.innerHTML = '';
@@ -7,36 +9,39 @@ function displayCameras(cameraList) {
         const cameraDiv = document.createElement('div');
         cameraDiv.className = 'item';
         cameraDiv.innerHTML = `
-      <strong>Manufacturer:</strong> ${camera.manufacturer} <br>
-      <strong>Memory:</strong> ${camera.memory} MB <br>
-      <strong>Zoom:</strong> ${camera.zoom}x
-    `;
+          <strong>Manufacturer:</strong> ${camera.manufacturer} <br>
+          <strong>Memory:</strong> ${camera.memory} MB <br>
+          <strong>Zoom:</strong> ${camera.zoom}x
+        `;
         cameraListDiv.appendChild(cameraDiv);
     });
+    calculateTotalMemory(cameraList);
 }
 
-displayCameras(cameras);
+displayCameras(currentCameras);
 
 function searchCameras() {
-    const searchQuery = document.getElementById('search').value.toLowerCase();
-    const filteredCameras = cameras.filter(camera =>
+    const searchQuery = document.getElementById('search').value.toLowerCase().trim();
+    currentCameras = cameras.filter(camera =>
         camera.manufacturer.toLowerCase().includes(searchQuery)
     );
-    displayCameras(filteredCameras);
+    displayCameras(currentCameras);
 }
+
 function clearSearch() {
     const searchInput = document.getElementById('search');
     searchInput.value = '';
-    displayCameras(cameras);
+    currentCameras = [...cameras];
+    displayCameras(currentCameras);
 }
 
 function sortCamerasByZoom() {
-    const sortedCameras = [...cameras].sort((a, b) => a.zoom - b.zoom);
-    displayCameras(sortedCameras);
+    currentCameras = [...currentCameras].sort((a, b) => a.zoom - b.zoom);
+    displayCameras(currentCameras);
 }
 
-function calculateTotalMemory() {
-    const totalMemory = cameras.reduce((sum, camera) => sum + camera.memory, 0);
+function calculateTotalMemory(cameraList) {
+    const totalMemory = cameraList.reduce((sum, camera) => sum + camera.memory, 0);
     document.getElementById('totalMemory').textContent = totalMemory;
 }
 
@@ -44,4 +49,3 @@ window.searchCameras = searchCameras;
 window.clearSearch = clearSearch;
 window.sortCamerasByZoom = sortCamerasByZoom;
 window.calculateTotalMemory = calculateTotalMemory;
-
