@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Camera website</h1>
+
+    <div class="search-section">
+        <label for="search">Search by Manufacturer: </label>
+        <input type="text" id="search" placeholder="Поставте 1.2 бали, пліз">
+        <button id="wanna-button" onclick="searchCameras()">I wanna...</button>
+        <button id="nevermind-button" onclick="clearSearch()">Nevermind</button>
+    </div>
+
+    <div class="buttons">
+        <button onclick="sortCamerasByZoom()">Sort by Zoom</button>
+    </div>
+
+    <div>
+        <h3>Total Memory: <span id="totalMemory">0</span> MB</h3>
+    </div>
+
+    <div id="cameraList">
+        <h3>Camera List</h3>
+    </div>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>

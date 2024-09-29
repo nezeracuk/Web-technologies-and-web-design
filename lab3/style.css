@@ -1,0 +1,57 @@
+body{
+    background-color: #c3c3c3;
+}
+.container {
+    margin: 20px;
+}
+.container h1{
+    text-align: center;
+    font-size: 40px;
+}
+
+.buttons {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.buttons button{
+    background-color: black;
+    color: white;
+}
+
+.item {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.search-section{
+    display: flex;
+    justify-content: center;
+}
+
+.search-section label{
+    padding: 5px;
+}
+
+.search-section button{
+    margin: 5px;
+}
+
+#search{
+    background-color: #c3c3c3;
+}
+
+#nevermind-button{
+    background-color: red;
+    color: white;
+    border-color: black;
+    font-weight: bold;
+}
+
+#wanna-button{
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+}
