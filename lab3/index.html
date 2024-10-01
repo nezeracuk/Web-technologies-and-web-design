@@ -13,13 +13,14 @@
 
     <div class="search-section">
         <label for="search">Search by Manufacturer: </label>
-        <input type="text" id="search" placeholder="Поставте 1.2 бали, пліз">
-        <button id="wanna-button" onclick="searchCameras()">I wanna...</button>
-        <button id="nevermind-button" onclick="clearSearch()">Nevermind</button>
+        <input type="text" id="search" placeholder="Search...">
+        <button id="wanna-button" onclick="searchCameras()">Search</button>
+        <button id="nevermind-button" onclick="clearSearch()">Clear</button>
     </div>
 
     <div class="buttons">
         <button onclick="sortCamerasByZoom()">Sort by Zoom</button>
+        <button id="add-camera-btn">Add Camera</button>
     </div>
 
     <div>
@@ -31,6 +32,38 @@
     </div>
 </div>
 
-<script type="module" src="script.js"></script>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-modal">&times;</span>
+        <h2>Додати камеру</h2>
+        <form id="add-camera-form">
+            <label for="camera-manufacturer">Назва виробника:</label>
+            <input type="text" id="camera-manufacturer" required>
+            <label for="camera-memory">Пам'ять (MB):</label>
+            <input type="number" id="camera-memory" required>
+            <label for="camera-zoom">Зум (x):</label>
+            <input type="number" id="camera-zoom" required>
+            <button type="submit">Додати камеру</button>
+        </form>
+    </div>
+</div>
+
+<div id="edit-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-edit-modal">&times;</span>
+        <h2>Редагувати камеру</h2>
+        <form id="edit-camera-form">
+            <label for="edit-camera-manufacturer">Назва виробника:</label>
+            <input type="text" id="edit-camera-manufacturer" required>
+            <label for="edit-camera-memory">Пам'ять (MB):</label>
+            <input type="number" id="edit-camera-memory" required>
+            <label for="edit-camera-zoom">Зум (x):</label>
+            <input type="number" id="edit-camera-zoom" required>
+            <button type="submit">Зберегти зміни</button>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -55,3 +55,72 @@ body{
     font-weight: bold;
     border-color: black;
 }
+
+.add_button{
+}
+
+.removeButton{
+    color: white;
+    background-color: red;
+
+    justify-content: flex-end;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.close-btn {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: darkred;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: darkgreen;
+}
+
+#add-camera-form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#edit-camera-form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
