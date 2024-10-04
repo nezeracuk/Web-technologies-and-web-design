@@ -84,6 +84,7 @@ editCameraForm.addEventListener("submit", (event) => {
     closeEditModal();
 });
 
+
 closeModalBtn.addEventListener("click", closeModal);
 closeEditModalBtn.addEventListener("click", closeEditModal);
 
@@ -105,10 +106,10 @@ function calculateTotalMemory(cameraList) {
     const totalMemory = cameraList.reduce((sum, camera) => sum + camera.memory, 0);
     document.getElementById('totalMemory').textContent = totalMemory;
 }
-
+let filteredCameras = currentCameras
 function searchCameras() {
     const query = document.getElementById('search').value.trim().toLowerCase();
-    const filteredCameras = currentCameras.filter(camera => camera.manufacturer.toLowerCase().includes(query));
+    filteredCameras = currentCameras.filter(camera => camera.manufacturer.toLowerCase().includes(query));
     displayCameras(filteredCameras);
 }
 
@@ -118,6 +119,6 @@ function clearSearch() {
 }
 
 function sortCamerasByZoom() {
-    currentCameras.sort((a, b) => a.zoom - b.zoom);
-    displayCameras(currentCameras);
+    filteredCameras = [...filteredCameras].sort((a, b) => a.zoom - b.zoom);
+    displayCameras(filteredCameras);
 }
