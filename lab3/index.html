@@ -19,7 +19,7 @@
     </div>
 
     <div class="buttons">
-        <button onclick="sortCamerasByZoom()">Sort by Zoom</button>
+        <button onclick="sortCamerasByZoom()" type="button">Sort by Zoom</button>
         <button id="add-camera-btn">Add Camera</button>
     </div>
 
@@ -40,9 +40,9 @@
             <label for="camera-manufacturer">Назва виробника:</label>
             <input type="text" id="camera-manufacturer" required>
             <label for="camera-memory">Пам'ять (MB):</label>
-            <input type="number" id="camera-memory" required>
+            <input min="0" type="number" id="camera-memory" required>
             <label for="camera-zoom">Зум (x):</label>
-            <input type="number" id="camera-zoom" required>
+            <input min="0" type="number" id="camera-zoom" required>
             <button type="submit">Додати камеру</button>
         </form>
     </div>
@@ -56,9 +56,9 @@
             <label for="edit-camera-manufacturer">Назва виробника:</label>
             <input type="text" id="edit-camera-manufacturer" required>
             <label for="edit-camera-memory">Пам'ять (MB):</label>
-            <input type="number" id="edit-camera-memory" required>
+            <input min="0" type="number" id="edit-camera-memory" required>
             <label for="edit-camera-zoom">Зум (x):</label>
-            <input type="number" id="edit-camera-zoom" required>
+            <input min="0" type="number" id="edit-camera-zoom" required>
             <button type="submit">Зберегти зміни</button>
         </form>
     </div>
