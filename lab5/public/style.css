@@ -1,0 +1,126 @@
+body{
+    background-color: #c3c3c3;
+}
+.container {
+    margin: 20px;
+}
+.container h1{
+    text-align: center;
+    font-size: 40px;
+}
+
+.buttons {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.buttons button{
+    background-color: black;
+    color: white;
+}
+
+.item {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.search-section{
+    display: flex;
+    justify-content: center;
+}
+
+.search-section label{
+    padding: 5px;
+}
+
+.search-section button{
+    margin: 5px;
+}
+
+#search{
+    background-color: #c3c3c3;
+}
+
+#nevermind-button{
+    background-color: red;
+    color: white;
+    border-color: black;
+    font-weight: bold;
+}
+
+#wanna-button{
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+}
+
+.add_button{
+}
+
+.removeButton{
+    color: white;
+    background-color: red;
+
+    justify-content: flex-end;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.close-btn {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: darkred;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: darkgreen;
+}
+
+#add-camera-form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#edit-camera-form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
