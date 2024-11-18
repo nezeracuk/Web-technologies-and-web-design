@@ -3,7 +3,7 @@ import './Loader.css';
 
 const Loader = () => (
     <div className="loader">
-        <img src="/images/loading-img.jpg" className="loading-image" />
+        <img src="/images/pavlo_loader2.webp" className="loading-image" />
     </div>
 );
 

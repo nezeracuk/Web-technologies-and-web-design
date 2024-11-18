@@ -16,8 +16,12 @@ const ItemPage = () => {
     const contextItem = items.find(contextItem => contextItem.id === parseInt(id));
 
     useEffect(() => {
+        let isMounted = true;
+
         const fetchData = async () => {
             try {
+                console.log(`Fetching item with ID: ${id}`);
+
                 const response = await fetchItemById(id);
                 const apiData = response.data;
 
@@ -25,16 +29,25 @@ const ItemPage = () => {
                     apiData.imageUrl = contextItem.imageUrl;
                 }
 
-                setItem(apiData);
+                if (isMounted) {
+                    setItem(apiData);
+                }
             } catch (error) {
                 console.error('Error fetching product:', error);
             } finally {
-                setLoading(false);
+                if (isMounted) {
+                    setLoading(false);
+                }
             }
         };
 
         fetchData();
-    }, [id, contextItem]);
+
+        return () => {
+            isMounted = false;
+        };
+    }, [id]);
+
 
     if (loading) return <p>Loading...</p>;
     if (!item) return <p>Item not found</p>;
@@ -54,7 +67,7 @@ const ItemPage = () => {
                 <p className="description">{item.description}</p>
                 <div className="countable-field">
                     <label>Count</label>
-                    <input type="number" min="1" defaultValue={1}/>
+                    <input type="number" min="1" defaultValue={1} />
                 </div>
                 <div className="countable-field">
                     <SelectComponent

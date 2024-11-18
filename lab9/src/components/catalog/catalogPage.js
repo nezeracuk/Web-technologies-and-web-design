@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import CatalogItem from './catalogItem/catalogitem';
 import { fetchItems } from '../../services/api';
 import InputComponent from './inputComponents/inputcomponent';
@@ -14,52 +14,67 @@ const Catalog = () => {
     const [selectedAge, setSelectedAge] = useState('');
     const [selectedRarity, setSelectedRarity] = useState('');
     const [loading, setLoading] = useState(false);
-    const [fetchTimeout, setFetchTimeout] = useState(null);
+
+    const debounceTimeout = useRef(null);
+
 
     const fetchData = async () => {
         setLoading(true);
-
-        if (fetchTimeout) {
-            clearTimeout(fetchTimeout);
-        }
-
-        const timeoutId = setTimeout(async () => {
-            try {
-                const response = await fetchItems(searchTerm, sortOrder, selectedAge, selectedRarity);
-                setItems(response.data);
-            } catch (error) {
-                console.error("Error fetching items:", error);
-            }
+        try {
+            const response = await fetchItems(searchTerm, sortOrder, selectedAge, selectedRarity);
+            setItems(response.data);
+        } catch (error) {
+            console.error("Error fetching items:", error);
+        } finally {
             setLoading(false);
-        }, 1000);
-
-        setFetchTimeout(timeoutId);
+        }
     };
 
+
+    const handleFetchWithDebounce = () => {
+        if (debounceTimeout.current) {
+            clearTimeout(debounceTimeout.current);
+        }
+
+        debounceTimeout.current = setTimeout(() => {
+            fetchData();
+        }, 500);
+    };
+
+
     useEffect(() => {
-        fetchData();
+        handleFetchWithDebounce();
+
+
         return () => {
-            if (fetchTimeout) {
-                clearTimeout(fetchTimeout);
+            if (debounceTimeout.current) {
+                clearTimeout(debounceTimeout.current);
             }
         };
     }, [searchTerm, sortOrder, selectedAge, selectedRarity]);
 
-    const filteredItems = items.filter(item => {
-        const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase().trim());
-        const matchesAge = selectedAge ? item.age === selectedAge : true;
-        const matchesRarity = selectedRarity ? item.Rarity === selectedRarity : true;
-        return matchesSearch && matchesAge && matchesRarity;
-    });
 
-    const sortedItems = filteredItems.sort((a, b) => {
-        return sortOrder === 'desc' ? b.price - a.price : a.price - b.price;
-    });
+    const filteredItems = useMemo(() => {
+        return items.filter((item) => {
+            const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase().trim());
+            const matchesAge = selectedAge ? item.age.toString() === selectedAge : true;
+            const matchesRarity = selectedRarity ? item.Rarity === selectedRarity : true;
+            return matchesSearch && matchesAge && matchesRarity;
+        });
+    }, [items, searchTerm, selectedAge, selectedRarity]);
+
+
+    const sortedItems = useMemo(() => {
+        return filteredItems.sort((a, b) => {
+            return sortOrder === 'desc' ? b.price - a.price : a.price - b.price;
+        });
+    }, [filteredItems, sortOrder]);
+
 
     const handleSearchChange = (e) => setSearchTerm(e.target.value);
     const handleAgeChange = (e) => setSelectedAge(e.target.value);
     const handleRarityChange = (e) => setSelectedRarity(e.target.value);
-    const toggleSortOrder = () => setSortOrder(prevOrder => (prevOrder === 'desc' ? 'asc' : 'desc'));
+    const toggleSortOrder = () => setSortOrder((prevOrder) => (prevOrder === 'desc' ? 'asc' : 'desc'));
 
     return (
         <div className="catalog">
