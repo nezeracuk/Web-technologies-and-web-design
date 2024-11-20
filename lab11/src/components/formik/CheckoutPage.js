@@ -1,7 +1,9 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { clearCart } from '../../redux/cartAction';
 import './checkout.css';
 
 const CheckoutSchema = Yup.object().shape({
@@ -49,10 +51,14 @@ const InputField = ({ id, name, type = 'text', placeholder }) => (
 
 const CheckoutPage = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleSubmit = (values, { resetForm }) => {
         resetForm();
         navigate('/success');
+        dispatch(clearCart());
+
+
     };
 
     return (

@@ -32,7 +32,6 @@ const Cart = () => {
 
     const handleProceedToCheckout = () => {
         navigate('/checkout');
-        dispatch(clearCart());
     };
 
     return (
