@@ -7,7 +7,7 @@ import './itemCatalog.css';
 
 const ItemPage = () => {
     const { id } = useParams();
-    const { items } = useContext(ItemsContext); // Контекст для фото
+    const { items } = useContext(ItemsContext);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -21,19 +21,19 @@ const ItemPage = () => {
         const fetchData = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`http://localhost:5005/api/products/${id}`); // Дані з API
+                const response = await fetch(`http://localhost:5005/api/products/${id}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch product');
                 }
                 const data = await response.json();
 
-                // Додаємо фото з контексту, якщо воно є
+
                 const contextItem = items.find(contextItem => contextItem.id === parseInt(id));
                 if (contextItem) {
                     data.imageUrl = contextItem.imageUrl;
                 }
 
-                // Перевіряємо, що `age` є масивом, якщо ні, перетворюємо на масив
+
                 if (!Array.isArray(data.age)) {
                     data.age = [data.age];
                 }
@@ -73,7 +73,7 @@ const ItemPage = () => {
                 <div className="characteristics">
                     <span className="characteristic">
                         Rarity:
-                        <select value={selectedRarity} onChange={(e) => setSelectedRarity(e.target.value)}>
+                        <select className='characteristic2' value={selectedRarity} onChange={(e) => setSelectedRarity(e.target.value)}>
                             <option value="">Select rarity</option>
                             {Array.isArray(item.Rarity) && item.Rarity.map((rarity, index) => (
                                 <option key={index} value={rarity}>
@@ -84,7 +84,7 @@ const ItemPage = () => {
                     </span>
                     <span className="characteristic">
                         Age:
-                        <select value={selectedage} onChange={(e) => setSelectedage(e.target.value)}>
+                        <select className='characteristic2' value={selectedage} onChange={(e) => setSelectedage(e.target.value)}>
                             <option value="">Select age</option>
                             {Array.isArray(item.age) && item.age.map((age, index) => (
                                 <option key={index} value={age}>
