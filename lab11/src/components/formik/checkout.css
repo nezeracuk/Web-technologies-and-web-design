@@ -1,0 +1,117 @@
+.checkout-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #000000; /* Темний фон */
+    color: #ecf0f1; /* Світлий текст */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+.checkout-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e74c3c;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-field {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ecf0f1;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}
+
+.checkout-input,
+.checkout-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.checkout-input:focus,
+.checkout-textarea:focus {
+    border-color: #e74c3c;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.8);
+}
+
+.checkout-textarea {
+    resize: none;
+    min-height: 100px;
+}
+.error-message {
+    color: #ff0000;
+}
+.checkout-error-message {
+    font-size: 12px;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+
+.checkout-checkbox {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.submit-button,
+.reset-button {
+    width: 48%;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button {
+    background-color: #e74c3c;
+}
+
+.submit-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.reset-button {
+    background-color: #7f8c8d;
+}
+
+.reset-button:hover {
+    background-color: #95a5a6;
+    transform: translateY(-2px);
+}
+
+.reset-button:active,
+.submit-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
