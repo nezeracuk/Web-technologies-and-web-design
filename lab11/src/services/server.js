@@ -146,21 +146,21 @@ app.get('/api/products', (req, res) => {
     let filteredProducts = products;
 
     if (search) {
-        const withoudProbiliv = search.trim().toLowerCase();
+        const withoutSpaces = search.trim().toLowerCase();
         filteredProducts = filteredProducts.filter(product =>
-            product.title.toLowerCase().includes(withoudProbiliv)
+            product.title.toLowerCase().includes(withoutSpaces)
         );
     }
 
     if (Rarity) {
         filteredProducts = filteredProducts.filter(product =>
-            product.Rarity.toLowerCase() === Rarity.toLowerCase()
+            product.Rarity.map(r => r.toLowerCase()).includes(Rarity.toLowerCase())
         );
     }
 
     if (age) {
         filteredProducts = filteredProducts.filter(product =>
-            product.age === age
+            product.age.includes(age)
         );
     }
 
@@ -173,16 +173,6 @@ app.get('/api/products', (req, res) => {
     res.json(filteredProducts);
 });
 
-app.get('/api/products/:id', (req, res) => {
-    const { id } = req.params;
-    const product = products.find(p => p.id === parseInt(id));
-
-    if (!product) {
-        return res.status(404).json({ message: 'no product' });
-    }
-
-    res.json(product);
-});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

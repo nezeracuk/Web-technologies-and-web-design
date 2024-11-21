@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './success.css'
 
 const SuccessPage = () => {
     const navigate = useNavigate();

@@ -11,7 +11,7 @@ const Catalog = () => {
     const [items, setItems] = useState([]);
     const [sortOrder, setSortOrder] = useState('desc');
     const [searchTerm, setSearchTerm] = useState('');
-    const [selectedAge, setSelectedAge] = useState('');
+    const [selectedage, setSelectedage] = useState('');
     const [selectedRarity, setSelectedRarity] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -21,7 +21,7 @@ const Catalog = () => {
     const fetchData = async () => {
         setLoading(true);
         try {
-            const response = await fetchItems(searchTerm, sortOrder, selectedAge, selectedRarity);
+            const response = await fetchItems(searchTerm, sortOrder, selectedage, selectedRarity);
             setItems(response.data);
         } catch (error) {
             console.error("Error fetching items:", error);
@@ -51,17 +51,17 @@ const Catalog = () => {
                 clearTimeout(debounceTimeout.current);
             }
         };
-    }, [searchTerm, sortOrder, selectedAge, selectedRarity]);
+    }, [searchTerm, sortOrder, selectedage, selectedRarity]);
 
 
     const filteredItems = useMemo(() => {
         return items.filter((item) => {
             const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase().trim());
-            const matchesAge = selectedAge ? item.age.toString().includes(selectedAge): true;
+            const matchesage = selectedage ? item.age.includes(selectedage): true;
             const matchesRarity = selectedRarity ? item.Rarity.includes(selectedRarity): true;
-            return matchesSearch && matchesAge && matchesRarity;
+            return matchesSearch && matchesage && matchesRarity;
         });
-    }, [items, searchTerm, selectedAge, selectedRarity]);
+    }, [items, searchTerm, selectedage, selectedRarity]);
 
 
     const sortedItems = useMemo(() => {
@@ -72,7 +72,7 @@ const Catalog = () => {
 
 
     const handleSearchChange = (e) => setSearchTerm(e.target.value);
-    const handleAgeChange = (e) => setSelectedAge(e.target.value);
+    const handleageChange = (e) => setSelectedage(e.target.value);
     const handleRarityChange = (e) => setSelectedRarity(e.target.value);
     const toggleSortOrder = () => setSortOrder((prevOrder) => (prevOrder === 'desc' ? 'asc' : 'desc'));
 
@@ -86,8 +86,8 @@ const Catalog = () => {
                     className="search-bar"
                 />
                 <SelectComponent
-                    value={selectedAge}
-                    onChange={handleAgeChange}
+                    value={selectedage}
+                    onChange={handleageChange}
                     className="filter-select"
                     options={[
                         { value: '', label: 'All ages' },
