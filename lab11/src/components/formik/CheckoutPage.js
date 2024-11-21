@@ -9,15 +9,19 @@ import './checkout.css';
 const CheckoutSchema = Yup.object().shape({
     firstName: Yup.string()
         .max(20, 'First name must be less than 20 characters')
-        .matches(/^[a-zA-Z]+$/, 'First name can only contain letters')
+        .matches(/^[a-zA-Z, а-яА-ЯЄєїЇІіґҐ]+$/, 'First name can only contain letters')
         .required('First name is required'),
     lastName: Yup.string()
         .max(20, 'Last name must be less than 20 characters')
-        .matches(/^[a-zA-Z]+$/, 'Last name can only contain letters')
+        .matches(/^[a-zA-Z, а-яА-ЯЄєїЇІіґҐ]+$/, 'Last name can only contain letters')
         .required('Last name is required'),
     email: Yup.string()
         .email('Email is invalid')
-        .required('Email is required'),
+        .required('Email is required')
+        .matches(
+            /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/,
+            'Email must contain a dot'
+        ),
     phone: Yup.string()
         .matches(/^\+?[0-9]{10,14}$/, 'Phone number must be valid')
         .required('Phone number is required'),
@@ -25,13 +29,13 @@ const CheckoutSchema = Yup.object().shape({
         .max(100, 'Address cannot exceed 100 characters')
         .required('Address is required'),
     comments: Yup.string()
-        .max(200, 'Comments cannot exceed 200 characters'), // Опціональне поле
+        .max(200, 'Comments cannot exceed 200 characters'),
     country: Yup.string()
         .required('Country is required'),
     deliveryMethod: Yup.string()
         .required('Delivery method is required'),
     confirmation: Yup.bool()
-        .oneOf([true], 'You must confirm your details before submitting') // Чекбокс
+        .oneOf([true], 'You must confirm your details before submitting')
         .required('Confirmation is required'),
 });
 
