@@ -50,12 +50,12 @@ let products = [
     },
     {
         id: 5,
-        title: 'Homo-Pavlo',
-        price: 142,
-        description: 'Pavlo expressing himself freely with confidence and pride.',
-        imageUrl: './images/homoPavlo.jpg',
-        Rarity: ['Rare', 'Epic'],
-        age: ['16', '17'],
+        title: 'Veres-Pavlo',
+        price: 10000,
+        description: 'Pavlo became upgraded version of his mind father - Zenoviy Veres.',
+        imageUrl: './images/veres-pavlo.jpg',
+        Rarity: ['Legendary'],
+        age: ['18'],
     },
     {
         id: 6,
@@ -146,15 +146,15 @@ app.get('/api/products', (req, res) => {
     let filteredProducts = products;
 
     if (search) {
-        const withoutSpaces = search.trim().toLowerCase();
+        const withoudProbiliv = search.trim().toLowerCase();
         filteredProducts = filteredProducts.filter(product =>
-            product.title.toLowerCase().includes(withoutSpaces)
+            product.title.toLowerCase().includes(withoudProbiliv)
         );
     }
 
     if (Rarity) {
         filteredProducts = filteredProducts.filter(product =>
-            product.Rarity.map(r => r.toLowerCase()).includes(Rarity.toLowerCase())
+            product.Rarity.toLowerCase() === Rarity.toLowerCase()
         );
     }
 
@@ -173,6 +173,16 @@ app.get('/api/products', (req, res) => {
     res.json(filteredProducts);
 });
 
+app.get('/api/products/:id', (req, res) => {
+    const { id } = req.params;
+    const product = products.find(p => p.id === parseInt(id));
+
+    if (!product) {
+        return res.status(404).json({ message: 'no product' });
+    }
+
+    res.json(product);
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

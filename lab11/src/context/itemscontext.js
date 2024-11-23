@@ -42,10 +42,10 @@ export const ItemsProvider = ({ children }) => {
         },
         {
             id: 5,
-            title: 'Homo-Pavlo',
+            title: 'Veres-Pavlo',
             price: 142,
-            description: 'Pavlo expressing himself freely with confidence and pride.',
-            imageUrl: require('./images/homoPavlo.jpg'),
+            description: 'Pavlo became upgraded version of his mind father - Zenoviy Veres.',
+            imageUrl: require('./images/veres-pavlo.jpg'),
             Rarity: 'Rare',
             age: '16',
         },
