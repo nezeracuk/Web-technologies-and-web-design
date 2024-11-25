@@ -1,16 +1,16 @@
 const express = require('express');
 const cors = require('cors');
-
+const bcrypt = require('bcrypt');
 const app = express();
 const PORT = process.env.PORT || 5005;
-
-
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = 'your_secret_key';
 app.use(cors());
 app.use(express.json());
-const path = require('path')
-app.use('/static', express.static(path.join(__dirname, 'public')))
+const path = require('path');
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
-
+let users = []
 let products = [
     {
         id: 1,
@@ -140,6 +140,106 @@ let products = [
     },
 ];
 
+
+app.post('/users/signin', async (req, res) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({ message: 'All fields must be filled' });
+    }
+
+    const user = users.find(user => user.email === email);
+    if (!user) {
+        return res.status(400).json({ message: 'User with this email not defined' });
+    }
+
+    console.log(`${email} is trying to sign in`);
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+        return res.status(400).json({ message: 'Incorrect password' });
+    }
+
+    const token = jwt.sign(
+        { userId: user.email },
+        JWT_SECRET,
+        { expiresIn: '1h' }
+    );
+
+    console.log(`Token for user ${email}: ${token}`);
+
+    res.json({
+        message: 'You signed in',
+        token,
+        user: {
+            username: user.username,
+            email: user.email
+        }
+    });
+});
+
+app.post('/users/signup', async (req, res) => {
+    const { username, password, email } = req.body;
+
+    if (!username || !password || !email) {
+        return res.status(400).json({ message: 'All fields must be filled' });
+    }
+
+    const existingUser = users.find(user => user.email === email);
+    if (existingUser) {
+        return res.status(400).json({ message: 'User with this email not defined' });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = { username, password: hashedPassword, email };
+    users.push(newUser);
+
+    res.status(201).json({
+        message: 'User successfully registered',
+        user: { username, email },
+    });
+});
+
+const authenticateToken = (req, res, next) => {
+    const token = req.header('Authorization')?.split(' ')[1];
+
+    if (!token) return res.status(401).json({ message: 'Token undefined' });
+
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) {
+            return res.status(403).json({ message: 'Incorrect token' });
+        }
+        req.user = user;
+        next();
+    });
+};
+
+app.get('/api/protected', authenticateToken, (req, res) => {
+    console.log("Access is allowed", req.user.userId);
+    res.json({ message: "You can't do this before login. Login first." });
+});
+
+app.get('/api/products/:id', (req, res) => {
+    const { id } = req.params;
+    const product = products.find(p => p.id === parseInt(id));
+
+    if (!product) {
+        return res.status(404).json({ message: 'no product' });
+    }
+
+    res.json(product);
+});
+
+app.post('/users/logout', authenticateToken, (req, res) => {
+    res.status(200).json({ message: 'Logged out successfully' });
+});
+
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
 app.get('/api/products', (req, res) => {
     const { search, sort, Rarity, age } = req.query;
 
@@ -171,19 +271,4 @@ app.get('/api/products', (req, res) => {
     }
 
     res.json(filteredProducts);
-});
-
-app.get('/api/products/:id', (req, res) => {
-    const { id } = req.params;
-    const product = products.find(p => p.id === parseInt(id));
-
-    if (!product) {
-        return res.status(404).json({ message: 'no product' });
-    }
-
-    res.json(product);
-});
-
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
 });

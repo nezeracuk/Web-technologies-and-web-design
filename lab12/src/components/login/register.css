@@ -1,0 +1,97 @@
+.auth-container-wrapper {
+    background-color: #fff5f5;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container {
+    min-width: 600px;
+    width: 40%;
+    padding: 40px;
+    background-color: #ffe6e6;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(255, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    border: 2px solid #ff4d4d;
+}
+
+.auth-container h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #cc0000;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(255, 0, 0, 0.5);
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ff9999;
+    border-radius: 8px;
+    outline: none;
+    background-color: #fff5f5;
+    color: #cc0000;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-container input:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+.auth-container button {
+    background-color: #ff4d4d;
+    color: white;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.auth-container button:hover {
+    background-color: #cc0000;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+.auth-container .error {
+    color: #cc0000;
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.auth-container p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #990000;
+}
+
+.auth-container .switch-link {
+    color: #cc0000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.auth-container .switch-link:hover {
+    color: #ff4d4d;
+    text-shadow: 1px 1px 5px rgba(255, 0, 0, 0.5);
+}
