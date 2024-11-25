@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import './reviews.css';
 
 const commentsData = [
@@ -43,15 +42,6 @@ const Comments = () => {
                         </div>
                     </div>
                 ))}
-            </div>
-
-            <div className="arrows">
-                <button className="arrow-btn left-arrow" disabled>
-                    <FaArrowLeft />
-                </button>
-                <button className="arrow-btn right-arrow" disabled>
-                    <FaArrowRight />
-                </button>
             </div>
         </div>
     );

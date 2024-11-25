@@ -28,7 +28,7 @@ function Header() {
                     <li><Link to="/cart">Cart</Link></li>
                     <li>
                         <button className="logout" onClick={handleLogout}>
-                            Logout
+                            Let me out
                         </button>
                     </li>
                 </ul>

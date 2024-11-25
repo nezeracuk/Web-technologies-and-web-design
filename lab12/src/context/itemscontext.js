@@ -43,7 +43,7 @@ export const ItemsProvider = ({ children }) => {
         {
             id: 5,
             title: 'Veres-Pavlo',
-            price: 142,
+            price: 10000,
             description: 'Pavlo became upgraded version of his mind father - Zenoviy Veres.',
             imageUrl: require('./images/veres-pavlo.jpg'),
             Rarity: 'Rare',
