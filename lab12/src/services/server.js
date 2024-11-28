@@ -141,7 +141,7 @@ let products = [
 ];
 
 
-app.post('/users/signin', async (req, res) => {
+app.post('/signin', async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -178,7 +178,7 @@ app.post('/users/signin', async (req, res) => {
     });
 });
 
-app.post('/users/signup', async (req, res) => {
+app.post('/signup', async (req, res) => {
     const { username, password, email } = req.body;
 
     if (!username || !password || !email) {
@@ -231,7 +231,7 @@ app.get('/api/products/:id', (req, res) => {
     res.json(product);
 });
 
-app.post('/users/logout', authenticateToken, (req, res) => {
+app.post('/logout', authenticateToken, (req, res) => {
     res.status(200).json({ message: 'Logged out successfully' });
 });
 

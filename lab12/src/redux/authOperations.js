@@ -10,13 +10,13 @@ const setAuthToken = token => {
 
 const clearAuthToken = () => {
     axios.defaults.headers.common.Authorization = '';
-    localStorage.removeItem('authToken');
+    localStorage.removeItem('token');
 };
 
 
-export const login = createAsyncThunk('api/user/login', async (credentials, thunkAPI) => {
+export const login = createAsyncThunk('/login', async (credentials, thunkAPI) => {
     try {
-        const response = await axios.post('http://localhost:5005/users/signin', credentials);
+        const response = await axios.post('http://localhost:5005/signin', credentials);
         return response.data;
     } catch (error) {
         Notify.failure(error.message)
@@ -24,11 +24,11 @@ export const login = createAsyncThunk('api/user/login', async (credentials, thun
     }
 });
 
-export const register = createAsyncThunk('user/register', async (userData, thunkAPI) => {
+export const register = createAsyncThunk('/register', async (userData, thunkAPI) => {
     try {
-        await axios.post('http://localhost:5005/users/signup', userData);
-        const response = await axios.post('http://localhost:5005/users/signin', userData)
-        setAuthToken(response.data.token)
+        await axios.post('http://localhost:5005/signup', userData);
+        const response = await axios.post('http://localhost:5005/signin', userData)
+        // setAuthToken(response.data.token)
         return response.data;
     } catch (error) {
         Notify.failure(error.message)
@@ -36,7 +36,7 @@ export const register = createAsyncThunk('user/register', async (userData, thunk
     }
 });
 
-export const getCurrentUser = createAsyncThunk('user/current',
+export const getCurrentUser = createAsyncThunk('/current',
     async(_, thunkAPI) =>{
         const state = thunkAPI.getState();
         const persistedToken = state.auth.token;
@@ -46,7 +46,7 @@ export const getCurrentUser = createAsyncThunk('user/current',
         }
         try {
             persistedToken && setAuthToken(persistedToken);
-            const res = await axios.get('/users/current');
+            const res = await axios.get('/current');
             return res.data;
         } catch (error) {
             if (error.response.data.message === 'jwt expired') {
@@ -58,9 +58,9 @@ export const getCurrentUser = createAsyncThunk('user/current',
     }
 )
 
-export const logout = createAsyncThunk('user/logout', async (_, thunkAPI) => {
+export const logout = createAsyncThunk('/logout', async (_, thunkAPI) => {
     try {
-        await axios.post('http://localhost:5005/users/logout');
+        await axios.post('http://localhost:5005/logout');
         localStorage.removeItem('authToken');
         return { message: 'Logged out successfully' };
     } catch (error) {

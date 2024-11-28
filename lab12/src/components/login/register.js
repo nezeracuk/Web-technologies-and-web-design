@@ -57,9 +57,8 @@ const Register = () => {
 
         try {
             const result = await dispatch(register({ username, email, password })).unwrap();
-
             if (result.token) {
-                navigate('/');
+                navigate('/login');
             }
         } catch (err) {
             setError(err.message || 'Failed to register. Please try again.');
