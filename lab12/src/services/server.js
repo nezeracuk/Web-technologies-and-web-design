@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const app = express();
 const PORT = process.env.PORT || 5005;
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'your_secret_key';
+const VERY_SECRET_KEY = 'user_secret_key';
 app.use(cors());
 app.use(express.json());
 const path = require('path');
@@ -162,8 +162,8 @@ app.post('/users/signin', async (req, res) => {
 
     const token = jwt.sign(
         { userId: user.email },
-        JWT_SECRET,
-        { expiresIn: '1h' }
+        VERY_SECRET_KEY,
+        { expiresIn: '24h' }
     );
 
     console.log(`Token for user ${email}: ${token}`);
@@ -206,7 +206,7 @@ const authenticateToken = (req, res, next) => {
 
     if (!token) return res.status(401).json({ message: 'Token undefined' });
 
-    jwt.verify(token, JWT_SECRET, (err, user) => {
+    jwt.verify(token, VERY_SECRET_KEY, (err, user) => {
         if (err) {
             return res.status(403).json({ message: 'Incorrect token' });
         }
@@ -237,7 +237,7 @@ app.post('/users/logout', authenticateToken, (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`http://localhost:${PORT}`);
 });
 
 app.get('/api/products', (req, res) => {

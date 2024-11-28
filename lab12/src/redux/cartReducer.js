@@ -1,16 +1,32 @@
-import {UPDATE_CART_ITEM_COUNT, ADD_TO_CART, CLEAR_CART, REMOVE_FROM_CART, SET_CART } from "./actionTypes";
+import { SET_CART, ADD_TO_CART, CLEAR_CART } from './actionTypes';
+
 
 const initialState = {
-    cartItems: [],
+    cartItems: {},
 };
 
 const cartReducer = (state = initialState, action) => {
+    const userEmail = localStorage.getItem('email');
+    if (!userEmail) {
+        return state;
+    }
+
     switch (action.type) {
         case SET_CART:
-            return { ...state, cartItems: action.payload };
+            if (!action.payload) {
+                return state;
+            }
+            return {
+                ...state,
+                cartItems: {
+                    ...state.cartItems,
+                    [userEmail]: action.payload,
+                },
+            };
 
-        case ADD_TO_CART:
-            const existingItemIndex = state.cartItems.findIndex(
+        case ADD_TO_CART: {
+            const existingCart = state.cartItems[userEmail] || [];
+            const existingItemIndex = existingCart.findIndex(
                 (item) =>
                     item.id === action.payload.id &&
                     item.selectedage === action.payload.selectedage &&
@@ -19,45 +35,33 @@ const cartReducer = (state = initialState, action) => {
 
             let updatedCartItems;
             if (existingItemIndex >= 0) {
-
-                updatedCartItems = [...state.cartItems];
+                updatedCartItems = [...existingCart];
                 updatedCartItems[existingItemIndex].count += action.payload.count;
             } else {
-
-                updatedCartItems = [...state.cartItems, action.payload];
+                updatedCartItems = [...existingCart, action.payload];
             }
-            return { ...state, cartItems: updatedCartItems };
 
-        case REMOVE_FROM_CART:
             return {
                 ...state,
-                cartItems: state.cartItems.filter(
-                    (item) =>
-                        !(item.id === action.payload.id &&
-                            item.selectedage === action.payload.selectedage &&
-                            item.selectedRarity === action.payload.selectedRarity)
-                ),
+                cartItems: {
+                    ...state.cartItems,
+                    [userEmail]: updatedCartItems,
+                },
             };
+        }
 
         case CLEAR_CART:
-            return { ...state, cartItems: [] };
-
-
-        case UPDATE_CART_ITEM_COUNT: {
-            const updatedCartItems = state.cartItems.map((item) =>
-                item.id === action.payload.id &&
-                item.selectedRarity === action.payload.selectedRarity &&
-                item.selectedage === action.payload.selectedage
-                    ? { ...item, count: action.payload.newCount }
-                    : item
-            );
-
-            return { ...state, cartItems: updatedCartItems };
-        }
+            return {
+                ...state,
+                cartItems: {
+                    ...state.cartItems,
+                    [userEmail]: [],
+                },
+            };
 
         default:
             return state;
     }
 };
 
-export default cartReducer
+export default cartReducer;

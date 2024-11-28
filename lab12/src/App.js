@@ -28,7 +28,6 @@ function App() {
         <ItemsProvider>
             <Router>
                 <Routes>
-                    {/* Публічні маршрути */}
                     <Route
                         path="/login"
                         element={

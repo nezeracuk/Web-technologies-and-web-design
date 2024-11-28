@@ -1,54 +1,78 @@
-import { ADD_TO_CART, CLEAR_CART, REMOVE_FROM_CART, SET_CART } from './actionTypes';
+import { CLEAR_CART, SET_CART } from './actionTypes';
 
-const saveCartToLocalStorage = (cartItems) => {
-    localStorage.setItem('cart', JSON.stringify(cartItems));
+const saveCartToLocalStorage = (userEmail, cartItems) => {
+    if (!userEmail) {
+        return;
+    }
+    localStorage.setItem(`cart_${userEmail}`, JSON.stringify(cartItems));
 };
+
 
 export const loadCartFromLocalStorage = () => {
     return (dispatch) => {
-        const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        const userEmail = localStorage.getItem('email');
+        if (!userEmail) {
+            return;
+        }
+
+        const savedCart = JSON.parse(localStorage.getItem(`cart_${userEmail}`)) || [];
         dispatch({ type: SET_CART, payload: savedCart });
     };
 };
 
 export const addToCart = (item) => {
     return (dispatch, getState) => {
-        const { cartItems } = getState().cart;
-
-        const existingItemIndex = cartItems.findIndex(
-            (cartItem) =>
-                cartItem.id === item.id &&
-                cartItem.selectedage === item.selectedage &&
-                cartItem.selectedRarity === item.selectedRarity
-        );
-
-        if (existingItemIndex > -1) {
-            const updatedCartItems = [...cartItems];
-            updatedCartItems[existingItemIndex].count += item.count;
-            dispatch({ type: SET_CART, payload: updatedCartItems });
-        } else {
-            dispatch({ type: ADD_TO_CART, payload: item });
+        const userEmail = localStorage.getItem('email');
+        if (!userEmail) {
+            return;
         }
 
-        saveCartToLocalStorage(getState().cart.cartItems);
+        const { cartItems } = getState().cart;
+        const userCart = cartItems[userEmail] || [];
+
+        const existingItemIndex = userCart.findIndex(
+            (cartItem) =>
+                cartItem.id === item.id &&
+                cartItem.selectedColor === item.selectedColor &&
+                cartItem.selectedSize === item.selectedSize
+        );
+
+        let updatedCartItems;
+        if (existingItemIndex > -1) {
+            updatedCartItems = [...userCart];
+            updatedCartItems[existingItemIndex].count += item.count;
+        } else {
+            updatedCartItems = [...userCart, item];
+        }
+
+        dispatch({ type: SET_CART, payload: updatedCartItems });
+        saveCartToLocalStorage(userEmail, updatedCartItems);
     };
 };
 
-export const removeFromCart = ({ id, selectedage, selectedRarity }) => {
+
+
+export const removeFromCart = ({ id, selectedColor, selectedSize }) => {
     return (dispatch, getState) => {
-        const updatedCartItems = getState().cart.cartItems.filter(
-            (item) => !(item.id === id && item.selectedage === selectedage && item.selectedRarity === selectedRarity)
+        const userEmail = localStorage.getItem('email');
+        if (!userEmail) return;
+
+        const updatedCartItems = getState().cart.cartItems[userEmail]?.filter(
+            (item) => !(item.id === id && item.selectedColor === selectedColor && item.selectedSize === selectedSize)
         );
 
         dispatch({ type: SET_CART, payload: updatedCartItems });
-        saveCartToLocalStorage(updatedCartItems);
+        saveCartToLocalStorage(userEmail, updatedCartItems);
     };
 };
 
-export const updateCartItemCount = ({ id, selectedage, selectedRarity, newCount }) => {
+export const updateCartItemCount = ({ id, selectedColor, selectedSize, newCount }) => {
     return (dispatch, getState) => {
-        const updatedCartItems = getState().cart.cartItems.map((item) =>
-            item.id === id && item.selectedage === selectedage && item.selectedRarity === selectedRarity
+        const userEmail = localStorage.getItem('email');
+        if (!userEmail) return;
+
+        const updatedCartItems = getState().cart.cartItems[userEmail]?.map((item) =>
+            item.id === id && item.selectedColor === selectedColor && item.selectedSize === selectedSize
                 ? { ...item, count: newCount }
                 : item
         );
@@ -56,13 +80,19 @@ export const updateCartItemCount = ({ id, selectedage, selectedRarity, newCount 
         const filteredCartItems = updatedCartItems.filter((item) => item.count > 0);
 
         dispatch({ type: SET_CART, payload: filteredCartItems });
-        saveCartToLocalStorage(filteredCartItems);
+        saveCartToLocalStorage(userEmail, filteredCartItems);
     };
 };
 
 export const clearCart = () => {
     return (dispatch) => {
+        const userEmail = localStorage.getItem('email');
+        if (!userEmail) return;
+
+        const savedCart = JSON.parse(localStorage.getItem('cart')) || {};
+        savedCart[userEmail] = [];
+        localStorage.setItem('cart', JSON.stringify(savedCart));
+
         dispatch({ type: CLEAR_CART });
-        localStorage.removeItem('cart');
     };
 };

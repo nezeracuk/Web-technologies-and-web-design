@@ -17,6 +17,10 @@ function Header() {
         navigate('/login');
     };
 
+    const getUserEmail = () => {
+        return localStorage.getItem('email') || 'Guest';
+    };
+
     return (
         <header className="header">
             <img src={logo} alt="Company Logo" className="logo" />
@@ -27,9 +31,10 @@ function Header() {
                     <li><Link to="/services">I wanna...</Link></li>
                     <li><Link to="/cart">Cart</Link></li>
                     <li>
-                        <button className="logout" onClick={handleLogout}>
-                            Let me out
-                        </button>
+                        <div className="logout" onClick={handleLogout}>
+                            {getUserEmail()}
+                            <div className="tooltip">Log out?</div>
+                        </div>
                     </li>
                 </ul>
             </nav>

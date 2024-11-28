@@ -6,7 +6,7 @@
 }
 
 .footer-content {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .footer-content h3,
@@ -16,17 +16,6 @@
 
 .social-media {
     margin: 15px 0;
-}
-
-.social-media a {
-    color: #ff0000;
-    margin: 0 15px;
-    font-size: 1.5rem;
-    transition: transform 0.3s;
-}
-
-.social-media a:hover {
-    transform: scale(1.1);
 }
 
 .footer-bottom {

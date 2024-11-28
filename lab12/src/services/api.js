@@ -11,8 +11,3 @@ export const fetchItems = async (searchTerm = '', sortOrder = 'desc', age = '', 
     });
     return response;
 };
-
-export const fetchItemById = async (id) => {
-    const response = await axios.get(`http://localhost:5005/api/products/${id}`);
-    return response;
-};

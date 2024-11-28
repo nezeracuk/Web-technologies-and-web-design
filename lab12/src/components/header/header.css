@@ -33,15 +33,36 @@ nav ul li a:hover {
     color: #ff0000;
 }
 
-.logout{
+.logout {
     display: flex;
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-size: 16px;
     font-weight: bold;
-
+    position: relative;
+    cursor: pointer;
 }
 
-.logout:hover{
+.logout:hover {
     color: #ff0000;
+}
+
+.logout:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip {
+    position: absolute;
+    /*top: -25px;*/
+    right: 0;
+    background-color: red;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 50px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    white-space: nowrap;
 }
