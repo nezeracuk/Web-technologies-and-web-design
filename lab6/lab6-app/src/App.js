@@ -1,7 +1,7 @@
 import Header from './components/header/header';
 import About from './components/about/about'
 import Reviews from './components/reviews/reviews'
-import Shoes from './components/pavlo/cameras'
+import Shoes from './components/pavlo/pavlo'
 import Footer from './components/footer/footer'
 function App() {
     return (
