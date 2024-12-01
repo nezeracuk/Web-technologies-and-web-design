@@ -140,7 +140,6 @@ let products = [
     },
 ];
 
-
 app.post('/signin', async (req, res) => {
     const { email, password } = req.body;
 
@@ -161,7 +160,10 @@ app.post('/signin', async (req, res) => {
     }
 
     const token = jwt.sign(
-        { userId: user.email },
+        {
+            userId: user.id,
+            email: user.email
+        },
         VERY_SECRET_KEY,
         { expiresIn: '24h' }
     );
