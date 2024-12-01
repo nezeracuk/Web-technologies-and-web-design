@@ -22,7 +22,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>&copy; САЙТ РОЗРОБЛЯВСЯ В ДІСКОРДІ З ПАВЛОМ ТА ВІЛЕНОМ</p>
+                <p>&copy; WEBSITE WAS DEVELOPED IN DISCORD WITH PAVLO AND VILEN</p>
             </div>
         </footer>
     );

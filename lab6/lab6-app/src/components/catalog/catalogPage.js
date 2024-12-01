@@ -78,7 +78,7 @@ const Catalog = () => {
                         />
                     ))
                 ) : (
-                    <p>You wrote bullshit</p>
+                    <p>Pavlo with this name does not exist</p>
                 )}
             </div>
         </div>
