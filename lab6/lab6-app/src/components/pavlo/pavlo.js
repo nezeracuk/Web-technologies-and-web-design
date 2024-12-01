@@ -3,12 +3,12 @@ import '../pavlo/new.css';
 
 const NewArrivals = () => {
     const cameras = [
-        { id: 1, name: "Павло",price: "$102", image: require('../../images/adidas.jpg') },
-        { id: 2, name: "Павло хMaxPro 15",price: "$40000", image: require('../../images/jog2.jpg') },
-        { id: 3, name: "Павлік",price: "$180", image: require('../../images/adidas2.jpg') },
-        { id: 4, name: "Пашок",price: "$134", image: require('../../images/adidas3.jpg') },
-        { id: 5, name: "Пашлейка",price: "$121", image: require('../../images/adidas4.jpg') },
-        { id: 6, name: "Пішон",price: "$100", image: require('../../images/Jog.jpg') }
+        { id: 1, name: "Павло",price: "$102", image: require('../../images/mustachioed_pavlo.jpg') },
+        { id: 2, name: "Павло хMaxPro 15",price: "$40000", image: require('../../images/pro_pavlo.jpg') },
+        { id: 3, name: "Павлік",price: "$180", image: require('../../images/bearded_pavlo.jpg') },
+        { id: 4, name: "Пашок",price: "$134", image: require('../../images/glasses_pavlo.jpg') },
+        { id: 5, name: "Пашлейка",price: "$121", image: require('../../images/joker_pavlo.jpg') },
+        { id: 6, name: "Пішон",price: "$100", image: require('../../images/catPavlo.jpg') }
     ];
 
     return (
